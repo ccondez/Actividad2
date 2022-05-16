@@ -11,11 +11,14 @@ public class Juego
     {
         Jugador p1=new Jugador();
         Jugador p2=new Jugador();
-        boolean fin_de_juego=false;  
-        Integer Rondasjugadas = 0;    // Número de rondas jugadas
-        Integer EXITOS_jugador1=p1.éxitos;
-        Integer EXITOS_jugador2=p2.éxitos;
-        Integer EmPaTeS = 0;
+        boolean fin_de_juego=false;
+        /**
+         * He cambiado el termino "integer" por int para que sea mas facil localizarlo
+         */
+        int Rondasjugadas = 0;    // Número de rondas jugadas
+        int EXITOS_jugador1=p1.éxitos;
+        int EXITOS_jugador2=p2.éxitos;
+        int EmPaTeS = 0;
         String opcion_JUGADOR1, opcion_JUGADOR2;
         
         // Bucle de juego
@@ -59,7 +62,10 @@ public class Juego
             	EXITOS_jugador2 = ++p2.éxitos;
                 System.out.println("Jugador 2 GANA");
             }
-            if(opcion_JUGADOR1==opcion_JUGADOR2)
+            if(opcion_JUGADOR1.equals(opcion_JUGADOR2))
+            /**
+             * He cambiado el "==" por un equals
+             */
             {
             	EmPaTeS++;
                 System.out.println("\n\t\t\t Empate \n");
@@ -71,7 +77,10 @@ public class Juego
                 System.out.println("FIN DEL JUEGO!!");
             }
             System.out.println();
-        } while(fin_de_juego!=true);
+            /**
+             * He puesto que sea directamente en negativo
+             */
+        } while(!fin_de_juego);
     }
 }
 /**
@@ -85,24 +94,25 @@ class Jugador{
     public String opcion_al_azar()
     {
         String opcion="";
-        Integer c = (int)(Math.random()*3);
-        switch(c){
-            case 0:
-            	opcion=("piedra");
-                break;
-            case 1:
-            	opcion=("papel");
-                break;
-            case 2:
-            	opcion=("tijeras");
+        int c = (int)(Math.random()*3);
+        /**
+         * He acortado las lineas de codigo  a 3 en vez de 9
+         */
+        switch (c) {
+            case 0 -> opcion = ("piedra");
+            case 1 -> opcion = ("papel");
+            case 2 -> opcion = ("tijeras");
         }
         return opcion;
     }
-    public void setÉxitos() 
+    /**
+     * He bajado las lieneas para que sea mas facil de ver y editar el codigo
+     */
+    public void setÉxitos()
     {
         éxitos++;
     }
-    public int getÉxitos() 
+    public int getÉxitos()
     {
         return(éxitos);
     }
